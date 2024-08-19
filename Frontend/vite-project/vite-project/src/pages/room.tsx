@@ -17,7 +17,7 @@ export function Room() {
 
                 <button
                         type="submit"
-                        className="bg-zinc-800 text-zinc-300 px-3 py-1.5 gap-1.5 flex items-center rounded-lg font-medium text-sm hover:bg-zinc-700 transition-colors">
+                        className="bg-zinc-800 text-zinc-300 px-3 py-1.5 gap-1.5 flex items-center rounded-lg font-medium text-sm hover:bg-zinc-700 transition-colors ml-auto">
                         Compartilhar <Share2 className="size-4" />
 
                     </button>

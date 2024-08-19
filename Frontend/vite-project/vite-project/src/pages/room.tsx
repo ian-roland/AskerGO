@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom"
 import askerLogo from '../assets/askergo-logo.svg'
-import { ArrowRight, ArrowUp, Share2 } from "lucide-react"
+import { ArrowRight, Share2 } from "lucide-react"
 import { toast } from "sonner"
+import { Message } from "../components/message"
 
 export function Room() {
     const { roomId } = useParams()
@@ -59,29 +60,7 @@ export function Room() {
                 </form>
 
                 <ol className="list-decimal list-outside px-3 space-y-8">
-                    <li className="ml-4 leading-relaxed tet-zinc-100">
-                        
-                        Onde será a palestra do professor de biologia?
-
-                        <button type="button" className="mt-3 flex items-center gap-2 text-orange-400 text-sm font-medium hover:text-orange-500">
-                        <ArrowUp className="size-4"/>Curtir pergunta (12)
-                        </button>
-
-                    </li>
-
-                </ol>
-
-                <ol className="list-decimal list-outside px-3 space-y-8">
-                    <li className="ml-4 leading-relaxed tet-zinc-100">
-                        
-                        Onde será a palestra do professor de biologia?
-
-                        <button type="button" className="mt-3 flex items-center gap-2 text-zinc-400 text-sm font-medium hover:text-zinc-300">
-                        <ArrowUp className="size-4"/>Curtir pergunta (12)
-                        </button>
-
-                    </li>
-
+                    <Message text="????????????" amountOfReactions={11}/>
                 </ol>
 
         </div>

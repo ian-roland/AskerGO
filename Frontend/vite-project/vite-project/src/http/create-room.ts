@@ -2,8 +2,8 @@ interface CreateRoomRequest {
     theme: string
 }
 
-export async function CreateRoom({ theme }: CreateRoomRequest ) {
-    const response = await fetch('http://localhost:8080/api/rooms' , {
+export async function createRoom({ theme }: CreateRoomRequest ) {
+    const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/rooms` , {
         method: 'POST',
         body: JSON.stringify({
             theme,

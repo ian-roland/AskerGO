@@ -1,16 +1,26 @@
 import { useNavigate } from "react-router-dom"
 import askerLogo from '../assets/askergo-logo.svg'
 import { ArrowRight } from 'lucide-react'
+import { createRoom } from "../http/create-room"
+import { toast } from "sonner"
 
 export function CreateRoom() {
     const navigate = useNavigate()
 
-    function handleCreateRoom(data: FormData) {
+    async function handleCreateRoom(data: FormData) {
         const theme = data.get('theme')?.toString()
 
-        console.log(theme)
-        
-        navigate('/room/30232903290')
+        if (!theme) {
+            return
+        }
+
+        try {
+            const { roomId} = await createRoom({ theme })
+            
+             navigate(`/room/${roomId}`)
+         } catch {
+            toast.error('Failed to create room.')
+         }
     }
 
     return (
@@ -30,6 +40,7 @@ export function CreateRoom() {
                         placeholder="Nome da sala"
                         autoComplete="off"
                         className="flex-1 text-sm bg-transparent mx-2 outline-none text-zinc-100 placeholder:text-zinc-500"
+                        required
 
                     />
 
